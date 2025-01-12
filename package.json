@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-login-page/page3": "^1.0.4",
     "@testing-library/react": "^16.1.0",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-login-page": "^1.0.4",
+    "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^4.2.4"
   },
