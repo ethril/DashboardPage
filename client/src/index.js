@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import Dashboard from "./pages/DashboardPage/DashboardPage";
 import PrivateRoute from "./components/PrivateRoute";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 export default function App() {
     return (
@@ -11,7 +12,7 @@ export default function App() {
             <Routes>
                 {/* Publiczna strona logowania */}
                 <Route index element={<LoginPage />} />
-
+                <Route path="RegisterPage" element={<RegisterPage />} />
                 {/* Zabezpieczona trasa Dashboard */}
                 <Route
                     path="DashboardPage"

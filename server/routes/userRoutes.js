@@ -21,7 +21,7 @@ router.post('/login', async (req, res) => {
         }
         console.log(password)
         console.log(user.password)
-
+        //TODO do poprawy bcrypt (isPasswordValid);
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (password !== user.password) {
             console.log("Invalid password");
@@ -33,6 +33,27 @@ router.post('/login', async (req, res) => {
         res.json({ token });  // Zwrócenie tokenu w odpowiedzi
     } catch (error) {
         console.error('Error during login:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// Endpoint generowania hasła
+router.post('/generate-password', async (req, res) => {
+    const { password } = req.body;
+    console.log("Received password:", password);
+
+    try {
+        // Ustal odpowiednią ilość rund dla haszowania za pomocą bcrypt (np. 10)
+        const saltRounds = 10;
+
+        // Hashowanie hasła
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        console.log("Hashed password:", hashedPassword);
+
+        // Opcjonalnie: możesz zapisać hasło do bazy danych lub zwrócić je w odpowiedzi
+        res.json({ hashedPassword });
+    } catch (error) {
+        console.error('Error during password generation:', error);
         res.status(500).json({ message: 'Server error' });
     }
 });
