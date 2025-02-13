@@ -8,22 +8,18 @@ const router = express.Router();
 // Endpoint logowania
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    console.log("Received email:", email);
 
     try {
         const userResult = await pool.query('SELECT * FROM public.users WHERE email = $1', [email]);
         const user = userResult.rows[0];
-        console.log('User from DB:', user);
-
         if (!user) {
             console.log("Invalid email");
             return res.status(401).json({ message: 'Invalid email' });
         }
-        console.log(password)
-        console.log(user.password)
-        //TODO do poprawy bcrypt (isPasswordValid);
+
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (password !== user.password) {
+
+        if (!isPasswordValid) {
             console.log("Invalid password");
             return res.status(401).json({ message: 'Invalid password' });
         }
