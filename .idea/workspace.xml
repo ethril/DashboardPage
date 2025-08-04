@@ -4,22 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2441847a-b214-4777-9cda-bfe18b231bb4" name="Changes" comment="add sidebar and settings&#10;fix gitignore">
+    <list default="true" id="2441847a-b214-4777-9cda-bfe18b231bb4" name="Changes" comment="add TreeFamily, add parser GEODEC">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/api/userApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/api/userApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/DashboardPage/DashboardPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/DashboardPage/DashboardPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/FamilyPage/FamilyPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/FamilyPage/FamilyPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/LoginPage/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/LoginPage/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/RegisterPage/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/RegisterPage/RegisterPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/userRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +147,7 @@
       <workItem from="1754151498840" duration="856000" />
       <workItem from="1754154793862" duration="13081000" />
       <workItem from="1754212208391" duration="658000" />
+      <workItem from="1754304937042" duration="286000" />
     </task>
     <task id="LOCAL-00001" summary="add sidebar and settings">
       <option name="closed" value="true" />
@@ -178,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743114515594</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add TreeFamily, add parser GEODEC">
+      <option name="closed" value="true" />
+      <created>1754305147569</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754305147569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +193,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add sidebar and settings" />
     <MESSAGE value="add sidebar and settings&#10;fix gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sidebar and settings&#10;fix gitignore" />
+    <MESSAGE value="add TreeFamily, add parser GEODEC" />
+    <option name="LAST_COMMIT_MESSAGE" value="add TreeFamily, add parser GEODEC" />
   </component>
 </project>
