@@ -1,14 +1,10 @@
 import React from 'react';
 import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
-import { DownloadOutlined } from '@mui/icons-material';
 import Header from '../../components/Header';
 import { tokens } from '../../theme';
 import Sidebar from '../../components/Sidebar';
 
 const Dashboard = () => {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
-    const isMdDevices = useMediaQuery('(min-width: 724px)');
 
     return (
         <Box display="flex">

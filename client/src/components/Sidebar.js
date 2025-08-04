@@ -33,6 +33,9 @@ const Sidebar = () => {
                 <ListItem button component={Link} to="/FamilyPage">
                     <ListItemText primary="Drzewo genealogiczne" />
                 </ListItem>
+                <ListItem button component={Link} to="/F1Page">
+                    <ListItemText primary="F1 API" />
+                </ListItem>
                 {/* Dodaj więcej elementów listy według potrzeb */}
             </List>
         </Box>

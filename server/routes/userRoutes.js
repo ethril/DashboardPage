@@ -7,29 +7,58 @@ const router = express.Router();
 
 // Endpoint logowania
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-
     try {
-        const userResult = await pool.query('SELECT * FROM public.users WHERE email = $1', [email]);
-        const user = userResult.rows[0];
+        const { email, password } = req.body;
+
+        console.log('Otrzymane dane:', {
+            email,
+            passwordLength: password?.length
+        });
+
+        if (!email || !password) {
+            return res.status(400).json({
+                message: 'Wymagane są wszystkie pola'
+            });
+        }
+
+        // Zapytanie do PostgreSQL
+        const result = await pool.query(
+            'SELECT * FROM users WHERE email = $1',
+            [email.toLowerCase()]
+        );
+
+        const user = result.rows[0];
+
         if (!user) {
-            console.log("Invalid email");
-            return res.status(401).json({ message: 'Invalid email' });
+            return res.status(401).json({
+                message: 'Nieprawidłowy email lub hasło'
+            });
         }
 
-        const isPasswordValid = await bcrypt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password, user.password);
 
-        if (!isPasswordValid) {
-            console.log("Invalid password");
-            return res.status(401).json({ message: 'Invalid password' });
+        if (!isMatch) {
+            return res.status(401).json({
+                message: 'Nieprawidłowy email lub hasło'
+            });
         }
 
-        const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        console.log("Token created:", token);
-        res.json({ token });  // Zwrócenie tokenu w odpowiedzi
+        const token = jwt.sign(
+            { userId: user.id },
+            process.env.JWT_SECRET,
+            { expiresIn: '24h' }
+        );
+
+        res.json({
+            token,
+            userId: user.id,
+            email: user.email
+        });
     } catch (error) {
-        console.error('Error during login:', error);
-        res.status(500).json({ message: 'Server error' });
+        console.error('Błąd logowania:', error);
+        res.status(500).json({
+            message: 'Wystąpił błąd podczas logowania'
+        });
     }
 });
 

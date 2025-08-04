@@ -10,23 +10,43 @@ const LoginPage = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate(); // Hook `useNavigate` do nawigacji
 
-    const handleLogin = async () => {
+    const loginHandler = async (credentials) => {
         try {
-            console.log("Attempting to log in with:", { email, password }); // Logowanie wysyłanych danych
-            // Wywołanie API logowania
-            const response = await axios.post('http://localhost:5000/api/login', { email, password });
-            console.log("Response:", response);
+            const response = await axios.post('http://192.168.0.101:5000/api/login', credentials, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            });
+
+            console.log('Status odpowiedzi:', response.status);
+            console.log('Dane odpowiedzi:', response.data);
 
             const { token } = response.data;
-
-            // Zapisanie tokenu w localStorage
             localStorage.setItem('token', token);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-            // Przekierowanie na stronę Dashboard
+            return response.data;
+        } catch (error) {
+            console.error('Błąd podczas logowania:', error);
+            throw error;
+        }
+    };
+
+    const handleLogin = async () => {
+        try {
+            console.log("Próba logowania:", { email, password });
+
+            const credentials = {
+                email: email.trim(),
+                password: password
+            };
+
+            await loginHandler(credentials);
             navigate("DashboardPage");
         } catch (err) {
-            console.error("Login error:", err);
-            setError('Invalid email or password');
+            console.error("Błąd logowania:", err);
+            setError('Nieprawidłowy email lub hasło');
         }
     };
 

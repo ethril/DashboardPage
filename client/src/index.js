@@ -8,6 +8,7 @@ import Dashboard from "./pages/DashboardPage/DashboardPage";
 import PrivateRoute from "./components/PrivateRoute";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import FamilyPage from "./pages/FamilyPage/FamilyPage";
+import F1Page from "./pages/F1Page/F1Page";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import Sidebar from "./components/Sidebar";
 
@@ -47,6 +48,15 @@ const App = () => {
                             </PrivateRoute>
                         }
                     />
+                    <Route
+                        path="F1Page"
+                        element={
+                            <PrivateRoute>
+                                <F1Page />
+                            </PrivateRoute>
+                        }
+                    />
+
                     <Route path="settings" element={<SettingsPage />} />
                 </Routes>
             </div>

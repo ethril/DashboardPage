@@ -15,7 +15,7 @@ const RegisterPage = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ password }), // Wysłanie hasła w body requestu
+                body: JSON.stringify({ password }), // Wysłanie hasła w body request
             });
 
             if (!response.ok) {
@@ -23,7 +23,7 @@ const RegisterPage = () => {
             }
 
             const data = await response.json();
-            setHashedPassword(data.hashedPassword); // Ustaw shaśowane hasło w stanie
+            setHashedPassword(data.hashedPassword); // Ustaw shaszowane hasło w stanie
         } catch (error) {
             console.error("Błąd:", error);
             alert("Nie udało się wygenerować hasła");
@@ -42,7 +42,7 @@ const RegisterPage = () => {
             </form>
             {hashedPassword && (
                 <p>
-                    <strong>Shaśowane hasło:</strong> {hashedPassword}
+                    <strong>Shaszowane hasło:</strong> {hashedPassword}
                 </p>
             )}
         </div>
